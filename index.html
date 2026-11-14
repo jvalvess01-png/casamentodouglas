@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão: Casamento de Douglas</title>
+    
+    <!-- Google Fonts: Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) para manter a responsividade e o layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração do Tailwind para usar a fonte Nunito -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Nunito', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#011E38',
+                            tech: '#264FEC',
+                            salmon: '#FFBC82',
+                            pink: '#FF5EC9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Fundo Soft UI Fluid / Glassmorphism */
+        body {
+            background-color: #f0f4f8;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(96, 165, 250, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(216, 180, 254, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #011E38;
+        }
+
+        /* Efeito de Vidro (Glassmorphism) para os cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            border-radius: 1.5rem;
+        }
+
+        /* Esferas decorativas flutuantes de fundo */
+        .blob { position: fixed; filter: blur(60px); z-index: -1; opacity: 0.5; border-radius: 50%; animation: float 10s infinite ease-in-out alternate; }
+        .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: #60a5fa; }
+        .blob-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: #c084fc; animation-delay: -5s;}
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        /* Range Slider customizado */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #264FEC;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 2px 6px rgba(38, 79, 236, 0.4);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: rgba(38, 79, 236, 0.2);
+            border-radius: 99px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 font-sans pb-24">
+    <!-- Decorações de fundo -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- HEADER (Missão: Casamento) -->
+        <header class="glass-card p-6 md:p-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <i data-lucide="gem" class="w-8 h-8 text-brand-tech"></i>
+                <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-brand-blue">
+                    Missão: Casamento de Douglas
+                </h1>
+            </div>
+            <p class="text-sm md:text-base text-gray-700 font-medium">
+                Igreja Matriz de Nossa Senhora De Lourdes, Praça Nossa Sra. de Lourdes, 215, Calçado - PE
+            </p>
+            <p class="text-sm md:text-base text-brand-tech font-bold mt-1">
+                19/12/2026 - Sábado • 20:00h
+            </p>
+        </header>
+
+        <!-- ROTEIRO E HOSPEDAGEM -->
+        <section class="glass-card p-6 md:p-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-brand-blue">
+                <i data-lucide="map" class="w-6 h-6 text-brand-tech"></i> Roteiro e Hospedagem
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- ÍDA -->
+                <div class="bg-white/50 rounded-xl p-5 border border-white">
+                    <h3 class="font-bold text-lg mb-4 flex items-center gap-2 text-brand-tech">
+                        <i data-lucide="arrow-right-circle" class="w-5 h-5"></i> Ida (19/12)
+                    </h3>
+                    <div class="space-y-4 text-sm relative border-l-2 border-brand-tech/30 ml-2 pl-4">
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">09:00h - Partida</p>
+                            <p class="text-gray-600">R. Minas Gerais, 186 - Candeias</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">Parada 1: Guilherme</p>
+                            <p class="text-gray-600">Paróquia N. Sra. da Conceição - Barro</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">Parada 2: Vinícius</p>
+                            <p class="text-gray-600">Santa Luzia - Estância</p>
+                        </div>
+                        <div class="relative pt-2">
+                            <div class="absolute -left-5 w-3 h-3 bg-brand-pink rounded-full top-3"></div>
+                            <p class="font-bold text-brand-pink">12:40h - Chegada Prevista</p>
+                            <p class="text-gray-800 font-semibold">Hotel Lucena - Lajedo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOLTA -->
+                <div class="bg-white/50 rounded-xl p-5 border border-white">
+                    <h3 class="font-bold text-lg mb-4 flex items-center gap-2 text-brand-tech">
+                        <i data-lucide="arrow-left-circle" class="w-5 h-5"></i> Volta (20/12)
+                    </h3>
+                    <div class="space-y-4 text-sm relative border-l-2 border-brand-tech/30 ml-2 pl-4">
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">10:30h - Saída</p>
+                            <p class="text-gray-600">Hotel Lucena - Lajedo</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">Parada 1: Vinícius</p>
+                            <p class="text-gray-600">Santa Luzia - Estância</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-5 w-2 h-2 bg-brand-tech rounded-full top-1.5"></div>
+                            <p class="font-bold">Parada 2: Guilherme</p>
+                            <p class="text-gray-600">Paróquia N. Sra. da Conceição - Barro</p>
+                        </div>
+                        <div class="relative pt-2">
+                            <div class="absolute -left-5 w-3 h-3 bg-brand-pink rounded-full top-3"></div>
+                            <p class="font-bold text-brand-pink">14:00h - Chegada Prevista</p>
+                            <p class="text-gray-800 font-semibold">Candeias - Jaboatão</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULADOR DE CUSTOS (Estilo Fiel à Referência) -->
+        <section class="glass-card p-6 md:p-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-brand-blue">
+                <i data-lucide="calculator" class="w-6 h-6 text-brand-tech"></i> Simulador de Custos
+            </h2>
+
+            <!-- Seu Custo Estimado Destaque -->
+            <div class="bg-brand-blue text-white rounded-2xl p-6 text-center shadow-lg mb-8">
+                <p class="text-brand-salmon font-semibold mb-1">Seu Custo Estimado</p>
+                <p class="text-4xl md:text-5xl font-extrabold tracking-tight" id="display-total">
+                    R$ 0,00
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hospedagem -->
+                <div class="bg-white/60 p-4 rounded-xl shadow-sm border border-white">
+                    <div class="flex justify-between items-center mb-4">
+                        <label class="font-semibold text-sm">Hospedagem</label>
+                        <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold shadow-sm" id="display-hospedagem">R$ 0,00</span>
+                    </div>
+                    <input type="range" id="input-hospedagem" min="0" max="3" step="1" value="0" class="w-full" oninput="calcularCustos()">
+                    <div class="flex justify-between text-xs text-gray-500 mt-2 font-medium">
+                        <span>Nenhum</span>
+                        <span>Individual</span>
+                        <span>Duplo</span>
+                        <span>Triplo</span>
+                        <span>Master</span>
+                    </div>
+                </div>
+
+                <!-- Gasolina Fixa -->
+                <div class="bg-white/60 p-4 rounded-xl shadow-sm border border-white flex flex-col justify-between">
+                    <div class="flex justify-between items-start mb-2">
+                        <label class="font-semibold text-sm">Gasolina (Sua parte fixa)</label>
+                        <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold shadow-sm">R$ 143,52</span>
+                    </div>
+                    <div class="text-xs text-gray-600 mt-2 space-y-1">
+                        <p>- 209km até o Hotel</p>
+                        <p>- + 22km para o casamento (ida e volta)</p>
+                        <p>- + 209km de volta.</p>
+                        <p>- Total: 440km</p>
+                        <p class="font-bold">- Custo total estimado: R$ 430,57</p>
+                    </div>
+                </div>
+
+                <!-- Gastos extras -->
+                <div class="bg-white/60 p-4 rounded-xl shadow-sm border border-white">
+                    <div class="flex justify-between items-center mb-4">
+                        <label class="font-semibold text-sm">Gastos extras</label>
+                        <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold shadow-sm text-gray-400">Rateio</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-gray-500">R$</span>
+                        <input type="number" id="input-pedagio" placeholder="0,00" class="w-full bg-transparent border-b-2 border-brand-tech/30 focus:border-brand-tech outline-none py-1 font-bold" oninput="calcularCustos()">
+                    </div>
+                </div>
+
+                <!-- Alimentação -->
+                <div class="bg-white/60 p-4 rounded-xl shadow-sm border border-white">
+                    <div class="flex justify-between items-center mb-4">
+                        <label class="font-semibold text-sm">Alimentação Prevista</label>
+                        <span class="bg-white px-3 py-1 rounded-lg text-sm font-bold shadow-sm text-gray-400">Sua parte</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-gray-500">R$</span>
+                        <input type="number" id="input-alimentacao" placeholder="0,00" class="w-full bg-transparent border-b-2 border-brand-tech/30 focus:border-brand-tech outline-none py-1 font-bold" oninput="calcularCustos()">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOOGLE MAPS -->
+        <section class="glass-card p-6 md:p-8 mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold flex items-center gap-2 text-brand-blue">
+                    <i data-lucide="map-pin" class="w-6 h-6 text-brand-tech"></i> Visualização da Rota (Ida)
+                </h2>
+                <a href="https://www.google.com/maps/dir/R.+Minas+Gerais,+186+-+Candeias,+Jaboat%C3%A3o+dos+Guararapes+-+PE,+54450-310/R.+Doroth%C3%A9ia+Vieira,+54+-+Barro,+Recife+-+PE,+50780-430/Santa+Luzia+-+Est%C3%A2ncia,+Recife+-+PE,+50865-030/Hotel+Lucena+%7C+Lajedo+PE/" target="_blank" class="text-sm font-bold text-brand-tech bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                    Abrir no Maps ↗
+                </a>
+            </div>
+            <!-- iFrame de Rota Genérica Otimizada (saddr = origem, daddr = destino com paradas via +to:) -->
+            <div class="w-full h-64 rounded-xl overflow-hidden shadow-inner border border-white/50">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?saddr=R.+Minas+Gerais,+186+-+Candeias,+Jaboatão+dos+Guararapes+-+PE,+54450-310&daddr=R.+Dorothéia+Vieira,+54+-+Barro,+Recife+-+PE,+50780-430+to:Santa+Luzia+-+Estância,+Recife+-+PE,+50865-030+to:Hotel+Lucena+Lajedo+-+PE&output=embed">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE DE HOTEL -->
+    <button onclick="toggleModal()" class="fixed bottom-6 right-6 bg-brand-tech text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
+        <i data-lucide="bed-double" class="w-7 h-7"></i>
+    </button>
+
+    <!-- MODAL DO HOTEL (Inicia Oculto) -->
+    <div id="hotel-modal" class="fixed inset-0 bg-brand-blue/40 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full shadow-2xl relative">
+            <!-- Botão fechar -->
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-brand-tech/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="hotel" class="w-8 h-8 text-brand-tech"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-blue">Hotel Lucena (Lajedo)</h3>
+                <p class="text-sm text-gray-500 mt-1">Contato: Daiane</p>
+            </div>
+
+            <div class="bg-brand-salmon/10 border border-brand-salmon/30 rounded-xl p-4 mb-6">
+                <p class="text-sm font-bold text-brand-blue mb-2 flex items-center gap-1">
+                    <i data-lucide="alert-circle" class="w-4 h-4 text-brand-salmon"></i> Atenção para o Desconto:
+                </p>
+                <p class="text-xs text-gray-700">
+                    Para garantir os valores promocionais listados no simulador, você <strong>precisa informar</strong> que foi indicação de "Verônica" e que vai para o casamento de Douglas.
+                </p>
+            </div>
+
+            <a href="https://wa.me/5587996350011?text=Ol%C3%A1%20Daiane!%20Fui%20indicado%20pela%20Ver%C3%B4nica%20e%20vou%20para%20o%20casamento%20de%20Douglas.%20Gostaria%20de%20verificar%20a%20disponibilidade." target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-green-500/30 flex justify-center items-center gap-2 transition-colors">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> Reservar via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- SCRIPTS MÁGICOS (Lógica Vanilla JS) -->
+    <script>
+        // Inicializa os ícones
+        lucide.createIcons();
+
+        // Valores de hospedagem de acordo com o slider (0, 180, 220, 320, 430)
+        // Como o input vai de 0 a 4 (são 5 opções), mapeamos os valores:
+        // 0: 0, 1: 180 (Indiv), 2: 220 (Duplo), 3: 320 (Triplo), 4: 430 (Master)
+        // Corrigido o max do slider para 4 no HTML (espera, no HTML eu botei max 3, vou ajustar via JS)
+        document.getElementById('input-hospedagem').setAttribute('max', '4');
+
+        const precosHospedagem = [0, 180, 220, 320, 430];
+        const gasolinaFixa = 143.52;
+
+        // Função do Simulador de Custos
+        function calcularCustos() {
+            // Pega o index do slider
+            const indexHospedagem = parseInt(document.getElementById('input-hospedagem').value) || 0;
+            const custoHospedagem = precosHospedagem[indexHospedagem];
+            
+            // Pega os inputs de texto numérico
+            const custoPedagio = parseFloat(document.getElementById('input-pedagio').value.replace(',', '.')) || 0;
+            const custoAlimentacao = parseFloat(document.getElementById('input-alimentacao').value.replace(',', '.')) || 0;
+
+            // Calcula Total
+            const total = custoHospedagem + custoPedagio + custoAlimentacao + gasolinaFixa;
+
+            // Atualiza a tela
+            document.getElementById('display-hospedagem').innerText = `R$ ${custoHospedagem.toFixed(2).replace('.', ',')}`;
+            document.getElementById('display-total').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Função do Modal
+        function toggleModal() {
+            const modal = document.getElementById('hotel-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Roda o cálculo inicial ao carregar a página
+        calcularCustos();
+    </script>
+</body>
+</html>
